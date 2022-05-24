@@ -14,7 +14,6 @@
         anim_container = document.getElementById("animation_container");
         dom_overlay_container = document.getElementById("dom_overlay_container");
         var comp = window[variableName].getComposition("AF85E247B6DC7C488F91CBC864D99C39");
-        var lib = comp.getLibrary();
         handleComplete({}, comp, variableName);
     }
     function handleComplete(evt, comp, variableName) {
@@ -35,8 +34,3 @@
         fnStartAnimation();
     }
 </script>
-<!-- CSS (load bootstrap from a CDN) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
-<style>
-    body { padding-top:50px; }
-</style>
