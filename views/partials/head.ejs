@@ -1,0 +1,42 @@
+<meta charset="UTF-8">
+<title>EJS is Fun</title>
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script src="js/deposit/start.js"></script>
+<script src="js/deposit/loop.js"></script>
+<script src="js/confirming/start.js"></script>
+<script src="js/confirming/loop.js"></script>
+<script>
+    var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+
+    function init(step, type) {
+        const variableName = `${step}${type}`
+        canvas = document.getElementById("canvas");
+        anim_container = document.getElementById("animation_container");
+        dom_overlay_container = document.getElementById("dom_overlay_container");
+        var comp = window[variableName].getComposition("AF85E247B6DC7C488F91CBC864D99C39");
+        var lib = comp.getLibrary();
+        handleComplete({}, comp, variableName);
+    }
+    function handleComplete(evt, comp, variableName) {
+        var lib = comp.getLibrary();
+        var ss = comp.getSpriteSheet();
+        exportRoot = new lib.SecExporting();
+        stage = new lib.Stage(canvas);
+        //Registers the "tick" event listener.
+        fnStartAnimation = function () {
+            stage.addChild(exportRoot);
+            createjs.Ticker.framerate = lib.properties.fps;
+            createjs.Ticker.addEventListener("tick", stage);
+            stage.addEventListener("tick", stage._handleTick);
+        }
+        //Code to support hidpi screens and responsive scaling.
+        window[variableName].makeResponsive(false, 'both', false, 1, [canvas, anim_container, dom_overlay_container]);
+        window[variableName].compositionLoaded(lib.properties.id);
+        fnStartAnimation();
+    }
+</script>
+<!-- CSS (load bootstrap from a CDN) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    body { padding-top:50px; }
+</style>
