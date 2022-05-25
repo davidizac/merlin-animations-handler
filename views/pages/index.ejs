@@ -3,9 +3,9 @@
 <head>
     <%- include('../partials/head'); %>
 </head>
-<body id="body" class="container" style="visibility: hidden;">
-    <div id="animation_container" style=" width:603px; height:529px">
-		<canvas id="canvas" width="603" height="529" style="position: absolute; display: block; "></canvas>
+<body id="body" class="container" style="overflow: hidden; visibility: visible; transform: scale(0.6); top: 0; position: absolute; left: 0;">
+    <div id="animation_container">
+		<canvas id="canvas" width="603" height="529" style="position: absolute; display: block; overflow: hidden; top: 0;left: 0;"></canvas>
 		<div id="dom_overlay_container"
 			style="pointer-events:none; overflow:hidden; width:603px; height:529px; position: absolute; left: 0px; top: 0px; display: block;">
 		</div>

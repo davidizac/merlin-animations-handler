@@ -29,7 +29,6 @@
             stage.addEventListener("tick", stage._handleTick);
         }
         //Code to support hidpi screens and responsive scaling.
-        window[variableName].makeResponsive(false, 'both', false, 1, [canvas, anim_container, dom_overlay_container]);
         window[variableName].compositionLoaded(lib.properties.id);
         fnStartAnimation();
     }
